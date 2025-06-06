@@ -65,6 +65,7 @@ dates = {
 
 os.system('cls' if os.name == 'nt' else 'clear')
 rprint("[underline magenta]Révisions[/underline magenta]")
+rprint("[dim italic]Appuyez sur entrée après la question pour avoir les choix.[/dim italic]")
 rprint(f"[bold]{str(1)}. Dates en Histoire[/bold]")
 
 print("\n")
@@ -93,6 +94,8 @@ def ask(data, question1, question2):
         wrong_answers = [item[0] for item in wrong_items]
         choices = shuffle_choices(key, *wrong_answers)
         correct_answer = key
+    
+    input()
 
     letters = ['A', 'B', 'C', 'D', 'E']
     for i, choice in enumerate(choices):
@@ -116,12 +119,12 @@ def ask(data, question1, question2):
         rprint("[underline green]Vrai.[/underline green]")
     else:
         rprint("[underline red]Faux.[/underline red]")
-        rprint("[dim]La réponse correcte était :[/dim]", f'[bold]"{str(correct_answer)}"[/bold]')
+        rprint("La réponse correcte était :", f'[bold]"{str(correct_answer)}"[/bold]')
 
 
 # Lancer le quiz
-for i in range(3):    
+while True:
     rprint("[dim] ---------------------------[/dim]")
     ask(dates, "Que s'est-il passé à cette date", "Quelle date correspond à cet événement")
     rprint("[dim] ---------------------------[/dim]")
-
+    print("\n")
